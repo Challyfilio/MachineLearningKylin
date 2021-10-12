@@ -1,3 +1,6 @@
 from LinearSVM import *
+from Regularized import *
 
-LSVM()
+#LSVM()
+
+Regularized()
