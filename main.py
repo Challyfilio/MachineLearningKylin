@@ -1,6 +1,9 @@
 from LinearSVM import *
 from Regularized import *
+from LogisticLSVM import *
 
-LSVM()
+LogisticLSVM()
+
+#LSVM()
 
 #Regularized()
