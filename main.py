@@ -10,6 +10,6 @@ from Iris import *
 
 # LogisticLSVM()
 
-#LSVM()
+LSVM()
 
 #Regularized()
