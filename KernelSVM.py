@@ -5,6 +5,8 @@ from sklearn.metrics import accuracy_score
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+
 
 def KernelSVM():
     X, y = make_gaussian_quantiles(n_features=2, n_classes=2, n_samples=100)
@@ -22,9 +24,32 @@ def KernelSVM():
     plt.show()
     #'''
 
-    kernel_list=['linear','rbf','poly','sigmoid']
+    model = SVC(kernel='linear')
+    model.fit(X_train, y_train)
+    w = model.coef_
+    b = model.intercept_
+    prediction = model.predict(X_test)
+
+    x = np.linspace(-2, 1.5, 100)
+    yl = (w[0, 0] * x + b[0]) / (-w[0, 1])
+
+    c1 = y_test == 0
+    c2 = y_test == 1
+    colors = np.asarray([i for i in map(lambda a: 'yellowgreen' if a == 1 else 'steelblue', prediction)])
+
+    plt.scatter(X_test[c1, 0], X_test[c1, 1], c=colors[c1], s=60, alpha=0.5, marker='s')
+    plt.scatter(X_test[c2, 0], X_test[c2, 1], c=colors[c2], s=60, alpha=0.5, marker='o')
+    plt.plot(x, yl, 'r')
+    plt.show()
+
+    print('linear:' + str(accuracy_score(prediction, y_test)))
+
+
+    kernel_list=['rbf','poly','sigmoid']
     for i in kernel_list:
         model = SVC(kernel=i)
         model.fit(X_train, y_train)
+        # w = model.coef_
+        # b = model.intercept_
         prediction = model.predict(X_test)
         print(i+':'+str(accuracy_score(prediction, y_test)))
