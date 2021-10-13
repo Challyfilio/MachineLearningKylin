@@ -28,6 +28,8 @@ def KernelSVM():
     model.fit(X_train, y_train)
     w = model.coef_
     b = model.intercept_
+    print(w)
+    print(b)
     prediction = model.predict(X_test)
 
     x = np.linspace(-2, 1.5, 100)
@@ -44,12 +46,9 @@ def KernelSVM():
 
     print('linear:' + str(accuracy_score(prediction, y_test)))
 
-
     kernel_list=['rbf','poly','sigmoid']
     for i in kernel_list:
         model = SVC(kernel=i)
         model.fit(X_train, y_train)
-        # w = model.coef_
-        # b = model.intercept_
         prediction = model.predict(X_test)
         print(i+':'+str(accuracy_score(prediction, y_test)))
