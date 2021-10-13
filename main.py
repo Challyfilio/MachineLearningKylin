@@ -1,8 +1,11 @@
 from LinearSVM import *
 from Regularized import *
 from LogisticLSVM import *
+from Iris import *
 
-LogisticLSVM()
+Iris()
+
+# LogisticLSVM()
 
 #LSVM()
 
