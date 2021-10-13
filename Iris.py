@@ -5,6 +5,7 @@ from sklearn import svm
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.manifold import TSNE
+from sklearn.metrics import classification_report
 
 iris = load_iris()
 
@@ -68,7 +69,7 @@ def Iris_LSVC_All():
     clf2.fit(X1, Y1)
     prediction = clf2.predict(X1)
 
-    X1_tSNE = TSNE(n_components=2).fit_transform(X1)
+    X1_tSNE = TSNE(n_components=2).fit_transform(X1)  # 降维数据
 
     c1 = Y1 == 0
     c2 = Y1 == 1
@@ -80,4 +81,12 @@ def Iris_LSVC_All():
     plt.scatter(X1_tSNE[c1, 0], X1_tSNE[c1, 1], c=dye(colors, prediction[c1]), s=60, alpha=0.5, marker='s')
     plt.scatter(X1_tSNE[c2, 0], X1_tSNE[c2, 1], c=dye(colors, prediction[c2]), s=60, alpha=0.5, marker='o')
     plt.scatter(X1_tSNE[c3, 0], X1_tSNE[c3, 1], c=dye(colors, prediction[c3]), s=60, alpha=0.5, marker='^')
+    plt.grid()
     plt.show()
+
+    # 置信分
+    confidence = clf2.decision_function(X1[:5])
+    print(confidence)
+
+    target_names = ['setosa', 'versicolor', 'virginica']
+    print(classification_report(Y1, prediction, target_names=target_names, digits=5))
