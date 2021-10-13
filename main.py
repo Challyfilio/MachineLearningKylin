@@ -3,8 +3,8 @@ from Regularized import *
 from LogisticLSVM import *
 from Iris import *
 
-Iris()
-
+# Iris()
+Iris_LSVC()
 # LogisticLSVM()
 
 #LSVM()
