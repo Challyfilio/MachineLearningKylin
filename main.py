@@ -12,6 +12,6 @@ from Iris import *
 # LSVM()
 # LogisticLSVM()
 
-#KernelSVM()
+# KernelSVM()
 
-Regularized()
+# Regularized()
