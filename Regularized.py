@@ -35,7 +35,7 @@ def Regularized():
             # print('j=' + str(j))
             # print('a[j]=' + str(a[j]))
             y += a[j] * x ** j
-        plt.plot(x, y + b, label='n=' + str(i))
+        plt.plot(x, y + b[0], label='n=' + str(i))
 
         train_pred_y = model.predict(train_poly_X)
         test_pred_y = model.predict(test_poly_X)
