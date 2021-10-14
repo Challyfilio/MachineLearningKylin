@@ -1,4 +1,3 @@
-#支持向量机：数据分类实践 鸢尾花
 import numpy as np
 import pandas as pd
 from sklearn.datasets import load_iris
@@ -6,7 +5,7 @@ from sklearn import svm
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.manifold import TSNE
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, accuracy_score
 
 iris = load_iris()
 
@@ -33,7 +32,8 @@ def Iris():
 
 # 线性可分
 def Iris_LSVC():
-    sub_data1 = iris_df[iris_df.species != 2]
+    sub_data1 = iris_df[iris_df.species != 2]  # 0
+    # print(sub_data1)
     sub_X1 = sub_data1.drop(['species', 'sepal_length', 'sepal_width'], axis=1)
     sub_Y1 = sub_data1.species
 
@@ -47,12 +47,12 @@ def Iris_LSVC():
     # 绘制分类超平面
     w = clf1.coef_
     b = clf1.intercept_
-    x = np.linspace(1.5, 3.5, 100)
+    x = np.linspace(1.5, 3.5, 100)  # 2.5,7.5
     y = (w[0, 0] * x + b[0]) / (-w[0, 1])
 
     plt.plot(x, y, 'r')
 
-    c1 = sub_Y1 == 0
+    c1 = sub_Y1 == 0  # 1,2
     c2 = sub_Y1 == 1
     colors = np.asarray([i for i in map(lambda a: 'yellowgreen' if a == 1 else 'steelblue', prediction)])
 
@@ -61,6 +61,8 @@ def Iris_LSVC():
 
     plt.grid()
     plt.show()
+
+    print(accuracy_score(prediction, sub_Y1))  # 评估
 
 
 # 使用全部特征
