@@ -11,11 +11,12 @@ from NN.MLP import *
 # Iris_LSVC_All()
 # Iris_SVC()
 
-# LSVM()
+LSVM()
 # LogisticLSVM()
 
 # KernelSVM()
 
 # Regularized()
 
-MLP()
+#Perceptron_1()
+#MLP()
