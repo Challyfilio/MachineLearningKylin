@@ -4,6 +4,7 @@ from SVM.LogisticLSVM import *
 from SVM.Iris import *
 from Regularized import *
 from NN.Perceptron import *
+from NN.MLP import *
 
 # Iris()
 # Iris_LSVC()
@@ -16,3 +17,5 @@ from NN.Perceptron import *
 # KernelSVM()
 
 # Regularized()
+
+MLP()
