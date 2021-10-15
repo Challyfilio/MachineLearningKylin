@@ -1,8 +1,9 @@
-from LinearSVM import *
-from KernelSVM import *
+from SVM.LinearSVM import *
+from SVM.KernelSVM import *
+from SVM.LogisticLSVM import *
+from SVM.Iris import *
 from Regularized import *
-from LogisticLSVM import *
-from Iris import *
+
 
 # Iris()
 # Iris_LSVC()
