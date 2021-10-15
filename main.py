@@ -18,5 +18,5 @@ LSVM()
 
 # Regularized()
 
-#Perceptron_1()
-#MLP()
+# Perceptron_1()
+# MLP()
