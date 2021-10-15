@@ -4,6 +4,8 @@ from sklearn.datasets import make_blobs
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
 
 def LSVM():
@@ -23,12 +25,23 @@ def LSVM():
     prediction = model.predict(X_test)
     # print(prediction)
 
+    '''
     c1 = y_test == 0
     c2 = y_test == 1
     colors = np.asarray([i for i in map(lambda a: 'yellowgreen' if a == 1 else 'steelblue', prediction)])
 
     plt.scatter(X_test[c1, 0], X_test[c1, 1], c=colors[c1], s=60, alpha=0.5, marker='s')
     plt.scatter(X_test[c2, 0], X_test[c2, 1], c=colors[c2], s=60, alpha=0.5, marker='o')
+    '''
+
+    df_α = pd.DataFrame(X_test[:, 0], columns=['x'])
+    df_β = pd.DataFrame(X_test[:, 1], columns=['y'])
+    df_γ = pd.DataFrame(prediction, columns=['prediction'])
+    df_δ = pd.DataFrame(y_test, columns=['species'])
+    df = pd.concat([df_α, df_β, df_γ, df_δ], axis=1)
+
+    sns.scatterplot(df['x'], df['y'], hue=df['prediction'], style=df['species'], markers=['s', 'o'], data=df)
+
     plt.plot(x, yl, 'r')
     plt.show()
 
