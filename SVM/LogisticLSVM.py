@@ -26,11 +26,10 @@ def LogisticLSVM():
 
     model = LinearSVC()
     model.fit(x, y)  # 训练
-    a = model.coef_
+    w = model.coef_
     b = model.intercept_
-    print(a)
-    print(b)
 
-    x=np.linspace(25,105,100)
-    plt.plot(x,a[:, 0]+a[:, 1]*x)
+    x = np.linspace(25, 105, 100)
+    yl = (w[0, 0] * x + b[0]) / (-w[0, 1])
+    plt.plot(x, yl, 'r')
     plt.show()
