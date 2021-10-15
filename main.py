@@ -3,7 +3,7 @@ from SVM.KernelSVM import *
 from SVM.LogisticLSVM import *
 from SVM.Iris import *
 from Regularized import *
-
+from NN.Perceptron import *
 
 # Iris()
 # Iris_LSVC()
