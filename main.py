@@ -14,7 +14,7 @@ from NN.MLP import *
 # LSVM()
 # LogisticLSVM()
 
-# KernelSVM()
+KernelSVM()
 
 # Regularized()
 
