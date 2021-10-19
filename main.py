@@ -7,6 +7,7 @@ from Regularized import *
 from NN.Perceptron import *
 from NN.MLP import *
 from MultiClass import *
+from Cluster.KMeans import *
 
 # Iris()
 # Iris_LSVC()
@@ -23,4 +24,6 @@ from MultiClass import *
 # Perceptron_1()
 # MLP()
 
-MultiClass()
+# MultiClass()
+
+KMeans()
