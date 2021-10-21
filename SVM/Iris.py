@@ -32,7 +32,7 @@ def Iris():
 
 # 线性可分
 def Iris_LSVC():
-    sub_data1 = iris_df[iris_df.species != 2]  # 0
+    sub_data1 = iris_df[iris_df.species != 0]  # 0,2
     # print(sub_data1)
     sub_X1 = sub_data1.drop(['species', 'sepal_length', 'sepal_width'], axis=1)
     sub_Y1 = sub_data1.species
@@ -47,13 +47,13 @@ def Iris_LSVC():
     # 绘制分类超平面
     w = clf1.coef_
     b = clf1.intercept_
-    x = np.linspace(1.5, 3.5, 100)  # 2.5,7.5
+    x = np.linspace(2.5, 7.5, 100)  # 2.5,7.5/1.5,3.5
     y = (w[0, 0] * x + b[0]) / (-w[0, 1])
 
     plt.plot(x, y, 'r')
 
-    c1 = sub_Y1 == 0  # 1,2
-    c2 = sub_Y1 == 1
+    c1 = sub_Y1 == 1  # 1,2/0,1
+    c2 = sub_Y1 == 2
     colors = np.asarray([i for i in map(lambda a: 'yellowgreen' if a == 1 else 'steelblue', prediction)])
 
     plt.scatter(sub_X1.values[c1, 0], sub_X1.values[c1, 1], c=colors[c1], s=60, alpha=0.5, marker='s')
@@ -62,7 +62,7 @@ def Iris_LSVC():
     plt.grid()
     plt.show()
 
-    print(accuracy_score(prediction, sub_Y1))  # 评估
+    print('accuracy_score:' + str(accuracy_score(prediction, sub_Y1)))  # 评估
 
 
 # 使用全部特征
