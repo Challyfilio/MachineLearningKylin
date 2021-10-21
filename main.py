@@ -27,4 +27,4 @@ from Cluster.KMeans import *
 # MultiClass()
 
 # KMeans_1()
-KMeans_2()
+# KMeans_2()
