@@ -24,7 +24,7 @@ from Cluster.KMeans import *
 # Perceptron_1()
 # MLP()
 
-# MultiClass()
+MultiClass()
 
-KMeans_1()
+# KMeans_1()
 # KMeans_2()
