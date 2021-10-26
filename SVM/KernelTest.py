@@ -50,6 +50,7 @@ def KernelTest():
             ("svm_clf", SVC(kernel=i, gamma=10))
         ])
         model.fit(X_train, y_train)
+        print(model)
         prediction = model.predict(X_test)
         print(i + ':' + str(accuracy_score(prediction, y_test)))
 
