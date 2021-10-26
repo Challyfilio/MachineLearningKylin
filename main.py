@@ -24,7 +24,10 @@ from Cluster.KMeans import *
 # Perceptron_1()
 # MLP()
 
-MultiClass()
+# MultiClass()
 
 # KMeans_1()
 # KMeans_2()
+
+if __name__ == '__main__':
+    print('hello')
