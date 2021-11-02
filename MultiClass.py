@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_digits
 from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 
-
-def MultiClass():
+if __name__ == '__main__':
     digits = load_digits()
 
     _, axes = plt.subplots(5, 10)
@@ -29,6 +29,7 @@ def MultiClass():
     X_test = scaler.transform(X_test)
 
     clf = LogisticRegression(penalty='l1', fit_intercept=True, solver='saga', tol=0.001, max_iter=1000)
+    # clf = MLPClassifier()
     clf.fit(X_train, Y_train)
 
     score = clf.score(X_test, Y_test)
