@@ -29,5 +29,5 @@ from Cluster.KMeans import *
 # KMeans_1()
 # KMeans_2()
 
-if __name__ == '__main__':
-    print('hello')
+# if __name__ == '__main__':
+#     print('hello')
